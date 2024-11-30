@@ -1,0 +1,222 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "SUSE", sans-serif;
+}
+
+:root {
+    --mainColor: #ee9cd1;
+    --hoverColor: #d46db0;
+}
+
+::selection {
+    background-color: var(--mainColor);
+    color: white;
+}
+
+.navbar {
+    background-color: var(--mainColor);
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.collapse ul li a {
+    transition: 0.5s ease-in-out;
+    color: white;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: black;
+}
+
+.icon-cart i{
+    color: white;
+    cursor: pointer;
+}
+
+.icon-cart{
+    position: relative;
+    width: 35px;
+}
+
+.icon-cart span{
+    position: absolute;
+    background-color: red;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 40%;
+    right: -5px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.products .item {
+    flex-basis: 28%;
+    display: inline-block;
+    background-color: white;
+    padding: 10px;
+    margin: 0px 10px 40px;
+    border-radius: 10px;
+    transition: 0.4s ease-in;
+    border: 0.5px var(--mainColor) solid;
+}
+
+.products .item img {
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.products .item:hover {
+    transform: scale(1.05);
+    border: 3px var(--mainColor) solid;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.products .item h1 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.products .item h2 {
+    font-size: 1.25rem;
+    font-weight: bolder;
+    color: var(--mainColor);
+}
+
+.products .item p {
+    font-size: 1rem;
+    font-weight: 200;
+    margin-bottom: 0;
+}
+
+.products .item .cart {
+    width: 40px;
+    height: 40px;
+    float: right;
+    background-color: var(--mainColor);
+    border: 3px var(--mainColor) solid;
+    border-radius: 5px;
+    margin-right: 3px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.products .item .cart a {
+    color: white;
+    padding: 25%;
+}
+
+.products .item .cart a i {
+    margin-top: 11px;
+    margin-right: 11px;
+}
+
+.products .item .cart:hover {
+    background-color: white;
+    border: 3px var(--mainColor) solid;
+}
+
+.products .item .cart a:hover {
+    color: var(--mainColor);
+}
+
+.cart .tooltip {
+    visibility: hidden;
+    width: 85px;
+    background-color: var(--mainColor);
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
+}
+
+.cart .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Arrow pointing down */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--mainColor) transparent transparent transparent;
+}
+
+.cart:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Responsive Media Queries */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .products {
+        width: 100%;
+        margin-left: 0;
+    }
+    .products .item {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px to 768px) */
+@media only screen and (max-width: 768px) {
+    .products {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .products .item {
+        width: 45%;
+        height: auto;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px to 992px) */
+@media only screen and (max-width: 992px) {
+    .products {
+        width: 85%;
+        margin-left: 7.5%;
+    }
+    .products .item {
+        width: 40%;
+        height: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .products {
+        width: 70%;
+        margin-left: 15%;
+    }
+    .products .item {
+        width: 30%;
+        height: auto;
+    }
+}

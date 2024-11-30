@@ -1,0 +1,192 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="checkout.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="icon" href="imgs/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="bg-pink-100 p-4 md:p-8">
+    <h3 class="heading"><span>C</span>heck<span>O</span>ut Form</h3>
+    <h1 class="sub-heading">Feel free to checkout your order</h1>
+    <div class="max-w-4xl mx-auto bg-white p-4 md:p-8 shadow-md">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h2 class="text-2xl font-bold mb-4">BILLING DETAILS</h2>
+                <form>
+                  <form>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">First name <span class="text-red-500">*</span></label>
+                        <input type="text" id="first-name" class="w-full border border-gray-300 p-2 rounded" required />
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Last name <span class="text-red-500">*</span></label>
+                        <input type="text" id="last-name" class="w-full border border-gray-300 p-2 rounded" required />
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Your number <span class="text-red-500">*</span></label>
+                        <input type="text" id="your-number" class="w-full border border-gray-300 p-2 rounded" required />
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Date and time <span class="text-red-500">*</span></label>
+                        <input type="date" id="date-time" class="w-full border border-gray-300 p-2 rounded" required />
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Country <span class="text-red-500">*</span></label>
+                        <input type="text" id="country" class="w-full border border-gray-300 p-2 rounded" value="Egypt" readonly />
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Street address <span class="text-red-500">*</span></label>
+                        <input type="text" id="street-address" class="w-full border border-gray-300 p-2 rounded" placeholder="House number and street name" required />
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Area <span class="text-red-500">*</span></label>
+                        <input type="text" id="area" class="w-full border border-gray-300 p-2 rounded" required />
+                    </div>
+                
+                    <div class="mb-4">
+                        <label class="block text-gray-700">State / City <span class="text-red-500">*</span></label>
+                        <select id="state-city" class="w-full border border-gray-300 p-2 rounded bg-white" required>
+                            <option value="" selected disabled>Select an option...</option>
+                            <option value="Cairo">Cairo</option>
+                            <option value="Alexandria">Alexandria</option>
+                            <option value="Minya">Minya</option>
+                            <option value="Luxor">Luxor</option>
+                            <option value="Aswan">Aswan</option>
+                            <option value="Sharm el Sheikh">Sharm el Sheikh</option>
+                            <option value="Hurghada">Hurghada</option>
+                            <option value="Giza">Giza</option>
+                            <option value="Port Said">Port Said</option>
+                            <option value="Qena">Qena</option>
+                            <option value="Fayoum">Fayoum</option>
+                            <option value="Menofya">Menofya</option>
+                            <option value="Tanta">Tanta</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Building</label>
+                        <input type="text" id="building" class="w-full border border-gray-300 p-2 rounded" />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Floor (optional)</label>
+                        <input type="text" id="floor" class="w-full border border-gray-300 p-2 rounded" />
+                    </div>
+                </form>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-4">YOUR ORDER</h2>
+                <div class="border border-gray-300 p-4 rounded mb-4" id="cartItems">
+                    <!-- Cart items will be displayed here -->
+                </div>
+                <div class="flex justify-between mb-4">
+                    <label for="gift">gifts</label>
+                    <select name="gift" id="gift">
+                        <option value="">Select your free gift....</option>
+                        <option value="Glossify lip gloss">Glossify lip gloss</option>
+                        <option value="Glossify tint">Glossify tint</option>
+                        <option value="Glossify eyebrow wax">Glossify eyebrow wax</option>
+                        <option value="Glossify face mask">Glossify face mask</option>
+                    </select>
+                </div>
+                <hr>
+                <br>
+
+
+              <div class="flex justify-between mt-4 mb-4">
+                    <span>Shipping</span>
+                    <span>Delivered in 3 - 7 Days</span>
+                </div>
+                <hr>
+                <div class="flex flex-col text-black" id="totalPriceContainer">
+                  <div class="flex justify-between font-bold">
+                      <span>Products price:</span>
+                      <span class="text-[#db2777]" id="productPrice">0.00 EGP</span>
+                  </div>
+                  <div class="flex justify-between font-bold">
+                      <span>Delivery Fee:</span>
+                      <span class="text-[#db2777]" id="deliveryFee">0.00 EGP</span>
+                  </div>
+                  <hr class="my-2"> <!-- Horizontal line for separation -->
+                  <div class="flex justify-between font-bold">
+                      <span>Total price:</span>
+                      <span class="text-[#db2777]" id="finalTotalPrice">0.00 EGP</span>
+                  </div>
+              </div>
+              
+              <br>
+              
+                <div class="mb-4">
+                  <!-- Payment Method Label -->
+                  <label class="block text-gray-700 text-2xl font-bold mb-2">Payment Method</label>
+
+                  <!-- Cash on Delivery Option -->
+                  <div class="flex items-center mb-2">
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="radio" name="payment" class="custom-radio" checked />
+                        <span class="text-black">Cash on delivery</span>
+                    </label>
+                  </div>
+
+                <!-- PayPal Option -->
+                <div class="flex items-center mb-2">
+                  <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="radio" name="payment" class="custom-radio" />
+                    <span class="text-black">PayPal</span>
+                  </label>
+                </div>
+
+<!-- Credit Card Option -->
+                <div class="flex items-center mb-2">
+                  <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="radio" name="payment" class="custom-radio" />
+                    <span class="text-black">Credit Card</span>
+                  </label>
+                <img src="https://storage.googleapis.com/a1aa/image/vz5Jjufdc80wd6JCUbVsGl17vst9tiZeIwThQ0rX2EAkmxnTA.jpg" alt="MasterCard logo" class="ml-4" width="40" height="20" />
+                <img src="https://storage.googleapis.com/a1aa/image/Jr9qMn7cIVa0L9rdT0rl25A0gDYFGiGmEN3ybCSOoNZpZ85E.jpg" alt="Visa logo" class="ml-2" width="40" height="20" />
+                  </div>
+                  
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Card Number</label>
+                        <input type="text" id="card-number" class="w-full border border-gray-300 p-2 rounded" />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">Valid Till</label>
+                        <input type="text" id="valid-till" class="w-full border border-gray-300 p-2 rounded" placeholder="MM/YY" />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700">CVV</label>
+                        <input type="text" id="cvv" class="w-full border border-gray-300 p-2 rounded" />
+                    </div>
+                </div>
+            </div>
+          </div>
+          
+        <div class="flex justify-center mt-4">
+          <button id="submit-btn" style="width: 400px;" class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700 transition duration-200">
+              Place Order
+          </button>
+
+      </div>
+    </div>
+
+    <script src="checkout.js"></script>
+
+</body>
+</html>

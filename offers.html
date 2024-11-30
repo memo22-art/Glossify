@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossify Neon Effect</title>
+    <link rel="icon" href="imgs/logo.png">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            position: relative;
+        }
+        .countdown-container {
+            position: absolute;
+            top: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(245, 243, 243, 0.084);
+            padding: 20px;
+            border-radius: 10px;
+            border:1px solid #ffb1e4;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            color: #ffb1e4;
+        }
+
+
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 0;
+        }
+
+
+        .neon-text {
+            font-size: 10vw; /* Responsive font size based on viewport width */
+            font-weight: bold;
+            color: transparent;
+            position: relative;
+            letter-spacing: 1vw;
+            margin: 0;
+            text-align: center;
+            white-space: pre;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .neon-text::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: transparent;
+            text-shadow: 
+            1px 1px 0 #ffb1e4, 
+            2px 2px 0 #ffb1e4,
+            3px 3px 0 #ffffff,
+            4px 4px 0 #ffb1e4,
+            5px 5px 0 #ffffff,
+            6px 6px 0 #ffb1e4,
+            7px 7px 0 #ffffff,
+            8px 8px 0 #ffb1e4;
+            width: 100%;
+            text-align: center;
+            white-space: pre;
+        }
+
+
+        .neon-text:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .neon-text:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+    .neon-text:nth-child(3) {
+        animation-delay: 1s;
+    }
+
+    .neon-text:nth-child(4) {
+        animation-delay: 1.5s;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .image-container {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 80%; 
+        padding: 20px;
+    }
+
+    .image-container img {
+        width: 25vw;
+        height: auto;
+        opacity: 0;
+        border: 0px solid #ffb1e4;
+        outline: none;
+        animation: imageFadeIn 1.5s ease forwards;
+        transition: border 0.3s ease, transform 0.3s ease; 
+    }
+    .image-container img:hover {
+    border: 5px solid #ffb1e4; 
+    border-radius: 10px; 
+    transform: scale(1.1); 
+}
+
+        .image-container img:nth-child(1) {
+            animation-delay: 1.8s;
+        }
+
+        .image-container img:nth-child(2) {
+            animation-delay: 2.3s;
+        }
+
+        .image-container img:nth-child(3) {
+            animation-delay: 2.8s;
+        }
+
+        @keyframes imageFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown-container" id="countdown">
+        48:00:00
+    </div>
+    <script>
+        const countdownEl = document.getElementById('countdown');
+        let countdownDate = new Date().getTime() + 48 * 60 * 60 * 1000; 
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 48)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownEl.innerHTML = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownEl.innerHTML = "00:00:00";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
+
+
+    <div class="background-container">
+        <h1 class="neon-text" data-text="glossify     glossify">glossify     glossify</h1>
+        <h1 class="neon-text" data-text="glossify     glossify">glossify     glossify</h1>
+        <h1 class="neon-text" data-text="glossify     glossify">glossify     glossify</h1>
+        <h1 class="neon-text" data-text="glossify     glossify">glossify     glossify</h1>
+    </div>
+
+
+    <div class="image-container">
+        <a href="Offer Pages/offer2.html"><img src="Offer Pages/offer2.jpg" alt="Image 1"></a>
+        <a href="Offer Pages/offer1.html"> <img src="Offer Pages/offer1.jpg" alt="Image 2"></a>
+        <a href="HairMask.html"> <img src="Offer Pages/offer3.jpg" alt="Image 3"></a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossify Login</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="icon" href="imgs/logo.png">
+  <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+</head>
+
+<body class="body">
+  <section class="b" id="home">
+    <header>
+      <nav>
+        <div class="logo" style="cursor: pointer;" onclick="location.href='index.html'">
+          glossify
+        </div>
+      </nav>
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="index.html">ABOUT US</a></li>
+          <li><a href="index.html">CONTACT US</a></li>
+          <li><a href="index.html">OUR PARTNERS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container" id="signin">
+      <h1 class="form-title">Sign In</h1>
+      <form method="post" action="" id="loginform">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <label for="email">Email: </label>
+          <input type="mail" name="email" id="email" placeholder="E-mail" required />
+          <span id="email-feedback" class="feedback"></span>
+        </div>
+        <br />
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <label for="pass">Password: </label>
+          <input type="password" name="pass" id="password" placeholder="Password" required />
+          <span id="password-feedback" class="feedback"></span>
+        </div>
+        <a href="index.html">
+          <input type="submit" class="btn" value="Sign In" name="Sign In" />
+        </a>
+
+
+      </form>
+
+      <div class="links">
+        <p>Don’t Have an Account?</p>
+        <a href="register.html">
+          <button id="signUpButton">Sign Up</button>
+        </a>
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

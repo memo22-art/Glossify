@@ -1,0 +1,133 @@
+:root { 
+    --mainColor: #ee9cd1;
+    /* --mainColor:#f08080; */
+}
+
+/* General body styling */
+body {
+    font-family: 'SUSE', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    margin: 20px 0; /* Added margin for spacing */
+}
+
+/* Cart container styling */
+.cart-container {
+    width: 80%;
+    max-width: 1200px; /* Added max-width for larger screens */
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+}
+
+/* Cart item styling */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s; /* Added transition for hover effect */
+}
+
+.cart-item:hover {
+    background-color: #f9f9f9; /* Hover effect for cart items */
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item h3 {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.cart-item p {
+    margin: 0 10px;
+}
+
+/* Button styling */
+.cart-item button {
+    background-color: var(--mainColor);
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px; /* Increased padding for a better button size */
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s, transform 0.2s; /* Added transform transition */
+}
+
+.cart-item button:hover {
+    background-color: #d46db0;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Total price styling */
+h2 {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 24px;
+    color: #555;
+}
+
+/* Checkout button styling */
+.check {
+    display: flex;
+    justify-content: flex-end; /* Changed to flex-end for better alignment */
+    margin-right: 10%;
+}
+
+.check input {
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--mainColor);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Combined transitions */
+    outline: none; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.check input:hover {
+    background-color: #d46db0;
+    transform: translateY(-2px); /* Slightly more pronounced effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item img {
+        margin-bottom: 10px;
+    }
+
+    .cart-item h3 {
+        margin-left: 0;
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
